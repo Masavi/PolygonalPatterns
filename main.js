@@ -48,6 +48,28 @@ return false;
 /*
 ----------------------------------------------------------------------------
 
+Functions that will be called upon, when user click on the "Add input" button
+
+----------------------------------------------------------------------------
+*/
+function addInput(){
+var r = document.createElement('span');
+var y = document.createElement("INPUT");
+y.setAttribute("type", "number");
+y.setAttribute("placeholder", "Name");
+var g = document.createElement("IMG");
+g.setAttribute("src", "delete.png");
+increment();
+y.setAttribute("Name", "textelement_" + i);
+r.appendChild(y);
+g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+r.appendChild(g);
+r.setAttribute("id", "id_" + i);
+document.getElementById("myForm").appendChild(r);
+}
+/*
+----------------------------------------------------------------------------
+
 Functions that will be called upon, when user click on the Name text field.
 
 ----------------------------------------------------------------------------
