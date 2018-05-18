@@ -20,7 +20,7 @@ ctx.closePath();
 ctx.fill();
 */
 
-var i = 0; /* Set Global Variable i */
+var i = 1; /* Set Global Variable i */
 function increment(){
 i += 1; /* Function for automatic increment of field's "Name" attribute. */
 }
@@ -52,21 +52,58 @@ Functions that will be called upon, when user click on the "Add input" button
 
 ----------------------------------------------------------------------------
 */
+
 function addInput(){
-var r = document.createElement('span');
-var y = document.createElement("INPUT");
-y.setAttribute("type", "number");
-y.setAttribute("placeholder", "Name");
-var g = document.createElement("IMG");
-g.setAttribute("src", "delete.png");
+
+// ---------------------- X COORDINATE NEW INPUT ---------------------------
+var a = document.createElement('div');
+var b = document.createElement("INPUT");
+var c = document.createElement("p");
+
 increment();
-y.setAttribute("Name", "textelement_" + i);
-r.appendChild(y);
-g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-r.appendChild(g);
-r.setAttribute("id", "id_" + i);
-document.getElementById("myFormX").appendChild(r);
+
+// P attributes and text
+c.setAttribute("class", "coordinate-input-text");
+c.innerHTML = i;
+
+// Input attributes
+b.setAttribute("class", "coordinate-input-field");
+b.setAttribute("type", "number");
+b.setAttribute("Name", "x_coordinate_" + i);
+
+// Div attributes
+a.appendChild(c);
+a.appendChild(b);
+a.setAttribute("class", "coordinate-input-div");
+
+// Add to html
+document.getElementById("myFormX").appendChild(a);
+
+
+// ---------------------- X COORDINATE NEW INPUT ---------------------------
+var x = document.createElement('div');
+var y = document.createElement("INPUT");
+var z = document.createElement("p");
+
+// P attributes and text
+z.setAttribute("class", "coordinate-input-text");
+z.innerHTML = i;
+
+// Input attributes
+y.setAttribute("class", "coordinate-input-field");
+y.setAttribute("type", "number");
+y.setAttribute("Name", "y_coordinate_" + i);
+
+// Div attributes
+x.appendChild(z);
+x.appendChild(y);
+x.setAttribute("class", "coordinate-input-div");
+
+// Add to html
+document.getElementById("myFormY").appendChild(x);
+
 }
+
 /*
 ----------------------------------------------------------------------------
 

@@ -24,53 +24,44 @@
 		<p class="intro-paragraph">Introduce coordenadas x,y para dibujar polígonos en el lienzo</p>
 	</div>
 
-	<!-- Form and user input section -->
-	<div class="form-div">
+	<!-- Main -->
+	<div class="main-div">
 
-		<!-- Add input button -->
-		<div class="form-div-button">
-			<button type="button" name="addInputButton">Añadir otro campo</button>
+		<!-- Form and user input section -->
+		<div class="form-div">
+
+			<!-- Add input button -->
+			<div class="form-div-button">
+				<button type="button" onclick="addInput()" name="addInputButton">Añadir otro campo</button>
+			</div>
+
+			<form class="form" action="index.html" method="post">
+
+				<!-- X Coordinates -->
+				<div class="form-x-coordinate" id="myFormX">
+					<p class="form-coordinate-text">Coordenadas X</p>
+					<div class="coordinate-input-div">
+						<p class="coordinate-input-text">1</p>
+						<input class="coordinate-input-field"type="number" name="xcoordinate"/>
+					</div>
+				</div>
+
+				<!-- Y Coordinates -->
+				<div class="form-y-coordinate" id="myFormY">
+					<p class="form-coordinate-text">Coordenadas Y</p>
+					<div class="coordinate-input-div">
+						<p class="coordinate-input-text">1</p>
+						<input class="coordinate-input-field"type="number" name="xcoordinate"/>
+					</div>
+				</div>
+			</form>
 		</div>
 
-		<form class="form" action="index.html" method="post">
-
-			<!-- X Coordinates -->
-			<div class="form-x-coordinate">
-				<p class="form-coordinate-text">Coordenadas X</p>
-				<div class="coordinate-input-div">
-					<p class="coordinate-input-text">1</p>
-					<input class="coordinate-input-field"type="number" name="xcoordinate"/>
-				</div>
-				<span id="myFormX"></span>
-			</div>
-
-			<!-- Y Coordinates -->
-			<div class="form-y-coordinate">
-				<p class="form-coordinate-text">Coordenadas Y</p>
-				<div class="coordinate-input-div">
-					<p class="coordinate-input-text">1</p>
-					<input class="coordinate-input-field"type="number" name="xcoordinate"/>
-				</div>
-				<span id="myFormY"></span>
-			</div>
-		</form>
+		<!-- Canvas -->
+		<div class="canvas-div">
+			<canvas id="myCanvas" class="canvas"></canvas>
+		</div>
 	</div>
-
-	<!--
-	  	todo:
-					1) add inputFunction() to dinamically generate inputs
-
-						 <button onclick="nameFunction()">Name</button>
-
-						 <form action="#" id="mainform" method="get" name="mainform">
-							 <span id="myForm"></span>
-							 <p></p>
-							 <input type="submit" value="Submit">
-						 </form>
-
-					2) change form style so it dont suck
-					3) clean JS
-	-->
 
 	<!-- Scripts -->
 	<script type="text/javascript" src="main.js"></script>
