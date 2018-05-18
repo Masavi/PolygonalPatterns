@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta name="author" content="Mauricio Saavedra">
 	<meta charset="UTF-8">
@@ -23,9 +24,36 @@
 		<p class="intro-paragraph">Introduce coordenadas x,y para dibujar polígonos en el lienzo</p>
 	</div>
 
-	<!-- User input section -->
-	<div class="input-div">
+	<!-- Form and user input section -->
+	<div class="form-div">
 
+		<!-- Add input button -->
+		<div class="form-div-button">
+			<button type="button" name="addInputButton">Añadir otro campo</button>
+		</div>
+
+		<form class="form" action="index.html" method="post">
+
+			<!-- X Coordinates -->
+			<div class="form-x-coordinate">
+				<p class="form-coordinate-text">Coordenadas X</p>
+				<div class="coordinate-input-div">
+					<p class="coordinate-input-text">1</p>
+					<input class="coordinate-input-field"type="number" name="xcoordinate"/>
+				</div>
+				<span id="myFormX"></span>
+			</div>
+
+			<!-- Y Coordinates -->
+			<div class="form-y-coordinate">
+				<p class="form-coordinate-text">Coordenadas Y</p>
+				<div class="coordinate-input-div">
+					<p class="coordinate-input-text">1</p>
+					<input class="coordinate-input-field"type="number" name="xcoordinate"/>
+				</div>
+				<span id="myFormY"></span>
+			</div>
+		</form>
 	</div>
 
 	<!--
@@ -44,30 +72,8 @@
 					3) clean JS
 	-->
 
-
-		<!-- <div class="form-div">
-
-			<div class="space-left">
-				<button onclick="addInput()">Añadir campo</button>
-			</div>
-
-			<div class="left-input-div">
-				<p class="coordinate-text">Coordenada X</p>
-				<input type="number" name="xcoordinate">
-			</div>
-
-			<div class="right-input-div">
-				<p class="coordinate-text">Coordenada Y</p>
-				<input type="number" name="ycoordinate">
-			</div>
-
-			<div class="space-right">
-
-			</div>
-		</div> -->
-
-
 	<!-- Scripts -->
 	<script type="text/javascript" src="main.js"></script>
 </body>
+
 </html>

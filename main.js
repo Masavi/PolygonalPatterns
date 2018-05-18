@@ -65,7 +65,7 @@ r.appendChild(y);
 g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
 r.appendChild(g);
 r.setAttribute("id", "id_" + i);
-document.getElementById("myForm").appendChild(r);
+document.getElementById("myFormX").appendChild(r);
 }
 /*
 ----------------------------------------------------------------------------
