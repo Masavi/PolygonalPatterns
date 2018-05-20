@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Polygonal Patterns</title>
+	<title>Generador de Patrones</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 	<!-- Navbar -->
 	<div class="navbar">
 		<div class="upper-navbar">
-			<h1 class="heading">Polygonal Patterns</h1>
+			<h1 class="heading">Generador de Patrones</h1>
 		</div>
 		<div class="lower-navbar"></div>
 	</div>
@@ -31,29 +31,40 @@
 		<div class="form-div">
 
 			<!-- Add input button -->
-			<div class="form-div-button">
+			<div class="form-add-input">
 				<button type="button" onclick="addInput()" name="addInputButton">Añadir otro campo</button>
 			</div>
 
-			<form class="form" action="index.html" method="post">
+			<form class="form" id="coordinates-form">
 
-				<!-- X Coordinates -->
-				<div class="form-x-coordinate" id="myFormX">
-					<p class="form-coordinate-text">Coordenadas X</p>
-					<div class="coordinate-input-div">
-						<p class="coordinate-input-text">1</p>
-						<input class="coordinate-input-field"type="number" name="xcoordinate"/>
+				<!-- Coordinates div -->
+				<div class="form-coordinates">
+
+					<!-- X Coordinates -->
+					<div class="form-x-coordinate" id="myFormX">
+						<p class="form-coordinate-text">Coordenadas X</p>
+						<div class="coordinate-input-div">
+							<p class="coordinate-input-text">1</p>
+							<input class="coordinate-input-field "type="number" name="x_coordinate_1"/>
+						</div>
+					</div>
+
+					<!-- Y Coordinates -->
+					<div class="form-y-coordinate" id="myFormY">
+						<p class="form-coordinate-text">Coordenadas Y</p>
+						<div class="coordinate-input-div">
+							<p class="coordinate-input-text">1</p>
+							<input class="coordinate-input-field"type="number" name="y_coordinate_1"/>
+						</div>
 					</div>
 				</div>
 
-				<!-- Y Coordinates -->
-				<div class="form-y-coordinate" id="myFormY">
-					<p class="form-coordinate-text">Coordenadas Y</p>
-					<div class="coordinate-input-div">
-						<p class="coordinate-input-text">1</p>
-						<input class="coordinate-input-field"type="number" name="xcoordinate"/>
-					</div>
+				<!-- Form submit -->
+				<div class="form-submit">
+					<input type="submit" name="formSubmit" value="submit">
 				</div>
+
+
 			</form>
 		</div>
 
