@@ -1,24 +1,7 @@
-/*
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.moveTo(0, 0);
-ctx.lineTo(50, 150);
-ctx.stroke();
+/* ------------- GLOBAL VARIABLES ----------------*/
 
-
-//poly [x,y, x,y, x,y.....];
-var poly=[ 5,5, 100,50, 50,100, 10,90 ];
-var canvas=document.getElementById("myCanvas")
-var ctx = canvas.getContext('2d');
-ctx.fillStyle = '#f00';
-
-ctx.beginPath();
-ctx.moveTo(poly[0], poly[1]);
-for( item=2 ; item < poly.length-1 ; item+=2 ){ctx.lineTo( poly[item] , poly[item+1] )}
-
-ctx.closePath();
-ctx.fill();
-*/
+var xCoordinates = [];
+var yCoordinates = [];
 
 var i = 1; /* Set Global Variable i */
 function increment(){
@@ -35,10 +18,64 @@ Form submit and processing
 var form = document.getElementById("coordinates-form");
   form.onsubmit = function(e){
     e.preventDefault();
-    console.log("From submit: " + form.x_coordinate_1.value);
-  }
 
-var inputs = document.getElementById("")
+    // Obtenemos todos los inputs del usuario
+    var inputs = document.getElementsByTagName('input');
+    var inputsLength = inputs.length - 1;
+
+    // Limpiamos los arreglos para introducir las coordenadas X y Y
+    xCoordinates = [];
+    yCoordinates = [];
+
+    // Recorremos los resultados
+    for (var i = 0; i < inputsLength; i++)
+    {
+      // La primera mitad corresponde a las coordenadas X
+      if (i < (inputsLength/2) )
+      {
+          xCoordinates.push(inputs[i].value);
+          // console.log("Coordenada x" + (i+1) + " = " + inputs[i].value);
+      }
+
+      // La segunda mitad corresponde a las coordenadas Y
+      else  yCoordinates.push(inputs[i].value);
+            // console.log("Coordenada y" + (i - (inputsLength/2) + 1) + " = " + inputs[i].value);
+
+    }
+    // Checamos que los arreglos se hayan llenado satisfactoriamente.
+    console.log(xCoordinates);
+    console.log(yCoordinates);
+
+    /*
+    ----------------------------------------------------------------------------
+
+    Canvas and pattern generator
+
+    ----------------------------------------------------------------------------
+    */
+
+    // Inicializamos  el canvas
+    //poly [x,y, x,y, x,y.....];
+    var poly = [];
+    var canvas=document.getElementById("myCanvas")
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f00';
+
+    // Llenamos el arreglo del polígono a dibujar
+    for (var i = 0; i <= xCoordinates.length; i++)
+    {
+      poly.push(xCoordinates[i]);
+      poly.push(yCoordinates[i]);
+    }
+
+    // Procedemos a pintar la figura
+    ctx.beginPath();
+    ctx.moveTo(poly[0], poly[1]);
+    for( item=2 ; item < poly.length-1 ; item+=2 ){ctx.lineTo( poly[item] , poly[item+1] )}
+
+    ctx.closePath();
+    ctx.fill();
+  }
 
 /*
 ----------------------------------------------------------------------------
