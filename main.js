@@ -1,12 +1,19 @@
-/* ------------- GLOBAL VARIABLES ----------------*/
+/*
+----------------------------------------------------------------------------
+
+WARNING: do not use global varibles. Please don't.
+
+----------------------------------------------------------------------------
+*/
 
 var xCoordinates = [];
 var yCoordinates = [];
 
-var i = 1; /* Set Global Variable i */
+var i = 1;
 function increment(){
-i += 1; /* Function for automatic increment of field's "Name" attribute. */
+i += 1;
 }
+
 /*
 ----------------------------------------------------------------------------
 
@@ -19,7 +26,7 @@ var form = document.getElementById("coordinates-form");
   form.onsubmit = function(e){
     e.preventDefault();
 
-    // Obtenemos todos los inputs del usuario
+    // Obtenemos todos los inputs
     var inputs = document.getElementsByTagName('input');
     var inputsLength = inputs.length - 1;
 
@@ -43,8 +50,8 @@ var form = document.getElementById("coordinates-form");
 
     }
     // Checamos que los arreglos se hayan llenado satisfactoriamente.
-    console.log(xCoordinates);
-    console.log(yCoordinates);
+    //console.log(xCoordinates);
+    //console.log(yCoordinates);
 
     /*
     ----------------------------------------------------------------------------
@@ -57,9 +64,15 @@ var form = document.getElementById("coordinates-form");
     // Inicializamos  el canvas
     //poly [x,y, x,y, x,y.....];
     var poly = [];
-    var canvas=document.getElementById("myCanvas")
+    var canvas = document.getElementById("myCanvas")
     var ctx = canvas.getContext('2d');
     ctx.fillStyle = '#f00';
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Cambiamos el origen al centro del canvas
+    var transX = canvas.width * 0.5,
+    transY = canvas.height * 0.5;
+    ctx.translate(transX, transY);
 
     // Llenamos el arreglo del polígono a dibujar
     for (var i = 0; i <= xCoordinates.length; i++)
@@ -72,7 +85,6 @@ var form = document.getElementById("coordinates-form");
     ctx.beginPath();
     ctx.moveTo(poly[0], poly[1]);
     for( item=2 ; item < poly.length-1 ; item+=2 ){ctx.lineTo( poly[item] , poly[item+1] )}
-
     ctx.closePath();
     ctx.fill();
   }
@@ -143,6 +155,28 @@ Functions that will be called upon, when user click on the Reset Button.
 
 ------------------------------------------------------------------------------
 */
+
 function resetElements(){
 document.getElementById('myForm').innerHTML = '';
+}
+
+/*
+-----------------------------------------------------------------------------
+
+Things that'll happen when user clicks on "submit" button
+
+------------------------------------------------------------------------------
+*/
+
+function showPatternGenerator(){
+  let btn = document.createElement('button');
+  btn.setAttribute("type", "button");
+  btn.setAttribute("onclick", "generatePattern()");
+  btn.setAttribute("name", "patternGenerator");
+  btn.innerHTML = "crear patron";
+  document.getElementById("myFormSubmit").appendChild(btn);
+}
+
+function generatePattern(){
+
 }
